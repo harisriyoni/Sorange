@@ -1,4 +1,4 @@
-Sorange Project: Portal Berita dengan PHP Native
+# Sorange Project: Portal Berita dengan PHP Native
 Sorange Project adalah sebuah aplikasi web yang dibangun menggunakan PHP Native untuk menyajikan portal berita. Aplikasi ini memiliki fitur CRUD (Create, Read, Update, Delete) untuk mengelola berita, serta fitur Login & Register untuk pengguna.
 
 Fitur Utama:
