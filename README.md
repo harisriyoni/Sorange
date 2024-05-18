@@ -6,8 +6,7 @@ CRUD Berita: Aplikasi ini memungkinkan pengguna untuk menambah, melihat, mengedi
 
 Login & Register: Pengguna dapat membuat akun baru dan masuk ke dalam sistem untuk mengakses fitur-fitur tertentu, seperti menambah atau mengedit berita.
 
-Link Website: * https://sorangeproject.000webhostapp.com/
-Kunjungi portal berita Sorange Project di: Sorange Project
+* Link Website: https://sorangeproject.000webhostapp.com/
 
 Cara Penggunaan:
 Pendaftaran: Jika Anda belum memiliki akun, klik tombol Register untuk membuat akun baru dengan mengisi formulir pendaftaran yang disediakan.
