@@ -1,0 +1,81 @@
+/* fungsi bintang{*}untuk menyeleksi clas maupun id  */
+/*  Hover fungsinya untuk membuat efek saat mouse mengenai suatu element HTML. */
+body {
+    font-family: 'Montserrat' sans-serif;
+    overflow-x: hidden;
+
+}
+/* nav bar*/
+nav {
+    display:flex;
+    background-color: rgb(228, 159, 10);
+    justify-content: space-around;
+    height: 50px;
+    color: rgb(250, 254, 255);
+    align-items: center;
+}
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+nav ul li a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+nav ul li a :hover {
+    color :rgb(1, 11, 14);
+}
+
+.menu-toggle {
+ display: none;
+ flex-direction: column;
+ height: 20px;
+ justify-content: space-between;
+ position: relative;
+}
+.menu-toggle input {
+    position: absolute;
+    width: 42px;
+    height: 28px;
+    left: -7px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block; 
+    width: 28px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+/* jumbotron */
+.jumbotron {
+    background-image: url(../mars.jpg);
+    background-size: cover;
+    height: 770px;
+    text-align: center;
+   }
+.footer-bottom {
+    background-color: rgb(48, 48, 248);
+    height: 50px;
+    
+    
+}
+.form{
+    display: block;
+    text-align: center;
+}
+table {
+    padding:10px;
+    border-spacing:0;
+}
