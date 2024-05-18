@@ -5,8 +5,8 @@ Fitur Utama:
 CRUD Berita: Aplikasi ini memungkinkan pengguna untuk menambah, melihat, mengedit, dan menghapus berita dengan mudah.
 
 Login & Register: Pengguna dapat membuat akun baru dan masuk ke dalam sistem untuk mengakses fitur-fitur tertentu, seperti menambah atau mengedit berita.
-* https://sorangeproject.000webhostapp.com/
-Link Website:
+
+Link Website: * https://sorangeproject.000webhostapp.com/
 Kunjungi portal berita Sorange Project di: Sorange Project
 
 Cara Penggunaan:
