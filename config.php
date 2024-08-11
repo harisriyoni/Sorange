@@ -1,12 +1,17 @@
 <?php
-//supaya array lebih mudah
-$server = "localhost";
-$user = "root";
-$password = "";
-$namadb = "sorange";
-//agar config connect dengan sql
+// Informasi koneksi database
+$server = "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$user = "semay6vxedd4p6sx";
+$password = "thh3vo09kieb4dtr";
+$namadb = "fizefwddyw5zc87p";
+
+// Menghubungkan ke database
 $db = mysqli_connect($server, $user, $password, $namadb);
-//check apakah config connect dengan sql atau tidak
-if(!$db) {
-    die("gagal terhubung dengan database : " . mysqli_connect_error());
+
+// Memeriksa apakah koneksi berhasil
+if (!$db) {
+    die("Gagal terhubung dengan database: " . mysqli_connect_error());
 }
+
+echo "Koneksi berhasil!";
+?>
