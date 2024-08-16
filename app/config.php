@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv("JAWSDB_URL"));
+$url = parse_url(getenv("mysql://by3mr2ynlvfchemi:y80rqx6zcwqyogjk@nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hq73ag1vyooqgnoo"));
 // Informasi koneksi database
 $server = "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 $user = "by3mr2ynlvfchemi";
@@ -15,5 +15,5 @@ if (!$db) {
     die("Gagal terhubung dengan database: " . mysqli_connect_error());
 }
 
-echo "Koneksi berhasil!";
+// echo "Koneksi berhasil!";
 ?>

@@ -21,10 +21,10 @@ if (isset($_POST['submit'])) {
     // Apakah  query simpan berhasil?
     if ($query) {
         // Kalau berhasil alihkan ke halaman index.php dengan status = sukses
-        header('Location: ../list-kategori.php?status=sukses');
+        header('Location:list-kategori.php?status=sukses');
     } else {
         // kalau gagal alihkan ke halaman index.php dengan status = gagal
-        header('Location: ../list-kategori.php?status=gagal');
+        header('Location:list-kategori.php?status=gagal');
     }
 }
 //Fungsi isset pada PHP adalah Fungsi isset () digunakan untuk memeriksa apakah suatu variabel sudah diatur atau belum.

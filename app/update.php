@@ -10,4 +10,4 @@ require 'config.php';
 
 mysqli_query($db, "update kategori_berita set kategori='$kategori', judul_berita='$judulberita', deskripsi = '$deskripsi', isi_berita = '$isiberita', gambar = '$gambar' where id=$id");
 
-header("location:../list-kategori.php");
+header("location:list-kategori.php");
