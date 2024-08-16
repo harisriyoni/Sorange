@@ -1,9 +1,9 @@
 <?php
-// Parse the JawsDB connection string
+// Informasi koneksi database
 $server = "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$user = "semay6vxedd4p6sx";
-$password = "thh3vo09kieb4dtr";
-$namadb = "fizefwddyw5zc87p";
+$user = "by3mr2ynlvfchemi";
+$password = "y80rqx6zcwqyogjk";
+$namadb = "hq73ag1vyooqgnoo";
 
 // Menghubungkan ke database
 $db = mysqli_connect($server, $user, $password, $namadb);
