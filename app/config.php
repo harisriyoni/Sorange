@@ -1,4 +1,6 @@
 <?php
+
+$url = parse_url(getenv("JAWSDB_URL"));
 // Informasi koneksi database
 $server = "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 $user = "by3mr2ynlvfchemi";
