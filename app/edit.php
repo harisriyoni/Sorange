@@ -10,8 +10,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login_.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login_.css">
 
     <title>Document</title>
 </head>
@@ -40,15 +40,15 @@
   </ul>
 </div>
       </nav>
-      <script src="js/ss.js"></script>
+      <script src="ss.js"></script>
       <br><br>
     <?php
-    include 'control/config.php';
+    include 'config.php';
     $id = $_GET['id'];
     $data = mysqli_query($db, "select * from kategori_berita where id='$id'");
     while ($d = mysqli_fetch_array($data)) { //menangkap data dari query merubahnya menjadi bentuk array
     ?>
-    <form action="control/update.php" method="POST" ALIGN="center">
+    <form action="update.php" method="POST" ALIGN="center">
     <ul>
             <td><input type="hidden" name="id" value="<?php echo $d['id']; ?>" ></td>
             <td>

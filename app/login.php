@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['admin_username'])){
     header("location:index.php");
 }
-    include("control/config.php");
+    include("config.php");
     $username = "";
     $password = "";
     $err = "";
@@ -36,7 +36,7 @@ if(isset($_SESSION['admin_username'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="css/login_.css">
+    <link rel="stylesheet" href="login_.css">
 </head>
 <body>
     <div id="app" ALIGN="CENTER">

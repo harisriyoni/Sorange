@@ -10,7 +10,7 @@ nav {
     display:flex;
     background-color: rgb(228, 159, 10);
     justify-content: space-around;
-  height: 50px;
+    height: 50px;
     color: rgb(250, 254, 255);
     align-items: center;
 }
@@ -60,7 +60,7 @@ nav ul li a :hover {
 }
 /* jumbotron */
 .jumbotron {
-    background-image: url(mars.jpg);
+    background-image: url(../mars.jpg);
     background-size: cover;
     height: 770px;
     text-align: center;

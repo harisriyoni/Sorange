@@ -2,7 +2,7 @@
 session_start();
 include ("config.php");
 if(!isset($_SESSION['admin_username'])){
-    header("location:login.php");
+    header("location:../login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ if(!isset($_SESSION['admin_username'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Sorange.id</title>
 </head>
 <body>
@@ -53,9 +53,9 @@ if(!isset($_SESSION['admin_username'])){
  $query = mysqli_query($db, $sql);
 
  if ($query){
- 	header("location:list-kategori.php?status=sukses");
+ 	header("location:../list-kategori.php?status=sukses");
  } else {
- 	header ("location:list-kategori.php?status=sukses");
+ 	header ("location:../list-kategori.php?status=sukses");
  }
 
 ?>

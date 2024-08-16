@@ -1,6 +1,6 @@
 <?php
-include 'control/config.php';
-include 'control/function.php';
+include 'config.php';
+include 'function.php';
 
 if(isset($_POST['register'])){
     if (Registrasi($_POST) > 0){
@@ -17,7 +17,7 @@ if(isset($_POST['register'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
-    <link rel="stylesheet" href="css/login_.css">
+    <link rel="stylesheet" href="login_.css">
     <style>
         label {
             display: block;
