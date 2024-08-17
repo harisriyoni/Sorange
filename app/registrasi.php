@@ -5,20 +5,24 @@ include'function.php';
 if (isset($_POST['register'])) {
     if (Registrasi($_POST) > 0) {
         echo"<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'User baru berhasil dibuat',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User baru berhasil dibuat',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
         </script>";
     } else {
         echo"<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Gagal membuat user',
-                text: '" . mysqli_error($db) . "',
-            });
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal membuat user',
+                    text: '" . mysqli_error($db) . "',
+                });
+            }
         </script>";
     }
 }
@@ -33,6 +37,7 @@ if (isset($_POST['register'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Halaman Registrasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         label {
             display: block;

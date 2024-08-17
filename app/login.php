@@ -19,7 +19,7 @@ if(isset($_SESSION['admin_username'])){
             $q1 = mysqli_query($db, $sql1);
             $r1 = mysqli_fetch_array($q1);
             if ($r1['password'] != md5($password)) {
-                $err .= "<li>Akun tidak ditemukan</li>";
+                $err .= "<li>Anda Belum Daftar atau Password salah</li>";
             }
         }
         if (empty($err)) {
@@ -29,7 +29,7 @@ if(isset($_SESSION['admin_username'])){
         }
     }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,6 +37,12 @@ if(isset($_SESSION['admin_username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+label {
+            display: block;
+        }
+    </style>
 </head>
 <body>
    
