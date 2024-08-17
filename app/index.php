@@ -149,7 +149,7 @@ include("config.php");
         </a>
       </div>
       <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-        <p class="text-xl font-semibold pb-5">Instagram</p>
+        <p class="text-xl font-semibold pb-5">About Me</p>
         <div class="grid grid-cols-3 gap-3">
           <div class="s-testimonials__slide swiper-slide">
             <div class="s-testimonials__author">
