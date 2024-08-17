@@ -11,14 +11,55 @@ if (isset($_POST['submit'])) {
     $judulberita = $_POST['judul_berita'];
     $deskripsi = $_POST['deskripsi'];
     $isiberita = $_POST['isi_berita'];
-    $gambar = $_POST['gambar'];
 
-    
+    // Proses upload gambar
+    $target_dir = "/app/";
+    $target_file = $target_dir . basename($_FILES["gambar"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["gambar"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+
+    // Check file size
+    if ($_FILES["gambar"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // If everything is ok, try to upload file
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
+            $gambar = $target_file;
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            exit();
+        }
+    } else {
+        echo "Sorry, your file was not uploaded.";
+        exit();
+    }
 
     // buat query
-    $sql = "INSERT INTO kategori_berita (id, kategori, judul_berita, deskripsi, isi_berita, gambar) VALUE ('$id', '$kategori', '$judulberita', '$deskripsi', '$isiberita', '$gambar')"; //INSERT INTO, UPDATE, SELECT*FROM, DELETE*FROM ini fungsi perintah yang akan dilakukan dalam sql
-    $query = mysqli_query($db, $sql); // <- ini yang harus ditambah mysqli_query itu fungsinya untuk menjalankan data
-    // Apakah  query simpan berhasil?
+    $sql = "INSERT INTO kategori_berita (id, kategori, judul_berita, deskripsi, isi_berita, gambar) VALUE ('$id', '$kategori', '$judulberita', '$deskripsi', '$isiberita', '$gambar')";
+    $query = mysqli_query($db, $sql);
+
+    // Apakah query simpan berhasil?
     if ($query) {
         // Kalau berhasil alihkan ke halaman index.php dengan status = sukses
         header('Location:dashboard.php?status=sukses');
@@ -27,6 +68,4 @@ if (isset($_POST['submit'])) {
         header('Location:dashboard.php?status=gagal');
     }
 }
-//Fungsi isset pada PHP adalah Fungsi isset () digunakan untuk memeriksa apakah suatu variabel sudah diatur atau belum.
-//Fungsi POST dan GET untuk menampung data atau nilai dari sebuah form atau url sebelum dimanipulasi
 ?>
