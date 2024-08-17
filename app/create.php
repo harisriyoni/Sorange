@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Redirect kembali ke form dengan pesan
-    header("Location: tampilan.php?message=" . urlencode($message));
+    header("Location: dashboard.php?message=" . urlencode($message));
     exit();
 }
 ?>
