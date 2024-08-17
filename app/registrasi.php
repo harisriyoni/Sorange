@@ -4,9 +4,22 @@ include'function.php';
 
 if (isset($_POST['register'])) {
     if (Registrasi($_POST) > 0) {
-        echo"<script>toastr.success('Kamu Berhasil Daftar');</script>";
+        echo"<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'User baru berhasil dibuat',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>";
     } else {
-        echo"<script>toastr.error('Terjadi kesalahan: " . mysqli_error($db) . "');</script>";
+        echo"<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal membuat user',
+                text: '" . mysqli_error($db) . "',
+            });
+        </script>";
     }
 }
 ?>
@@ -17,9 +30,7 @@ if (isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Halaman Registrasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
