@@ -35,9 +35,9 @@ include ("config.php");
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="">Mau Post Berita Kamu? Daftar Sekarang Gratis!</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li>
+                    <!-- <li><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li> -->
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Registrasi</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Logout</a></li>
+                    <!-- <li><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Logout</a></li> -->
                 </ul>
             </nav>
 
