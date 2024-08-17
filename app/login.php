@@ -41,28 +41,6 @@ if (isset($_POST['login'])) {
 
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <script>
-        <?php 
-        if (!empty($err)) { ?>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                html: '<?php echo $err; ?>'
-            });
-        <?php } 
-        if ($success) { ?>
-            Swal.fire({
-                icon: 'success',
-                title: 'Login Berhasil',
-                text: 'Anda akan diarahkan ke halaman dashboard.',
-                timer: 2000,
-                showConfirmButton: false
-            }).then(function() {
-                window.location.href = 'index.php';
-            });
-        <?php } ?>
-    </script>
 </head>
 
 <body>
@@ -92,6 +70,30 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            <?php 
+            if (!empty($err)) { ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    html: '<?php echo $err; ?>'
+                });
+            <?php } 
+            if ($success) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Berhasil',
+                    text: 'Anda akan diarahkan ke halaman dashboard.',
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php } ?>
+        });
+    </script>
 </body>
 
 </html>
