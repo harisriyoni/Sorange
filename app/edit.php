@@ -137,38 +137,38 @@ if (!isset($_SESSION['admin_username'])) {
                                 <i class="fas fa-list mr-3"></i> Isikan Semua Field dibawah ini:
                             </p>
                             <div class="leading-loose">
-                                <?php
-                                include 'config.php';
-                                $id = $_GET['id'];
-                                $data = mysqli_query($db, "select * from kategori_berita where id='$id'");
-                                while ($d = mysqli_fetch_array($data)) { //menangkap data dari query merubahnya menjadi bentuk array
-                                ?>
-                                    <form action="update.php" method="POST" class="p-10 bg-white rounded shadow-xl">
-                                        <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
-                                        <div class="mb-2">
-                                            <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
-                                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="kategori" name="kategori" type="text" required placeholder="Masukkan Kategori" value="<?php echo $d['kategori']; ?>" aria-label="Kategori">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="block text-sm text-gray-600" for="judul_berita">Judul Berita</label>
-                                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="judul_berita" name="judul_berita" type="text" required placeholder="Masukkan judul berita" value="<?php echo $d['judul_berita']; ?>" aria-label="Judul Berita">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="block text-sm text-gray-600" for="deskripsi">Deskripsi</label>
-                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="deskripsi" name="deskripsi" rows="6" required placeholder="Tulis Deskripsi di sini..." value="<?php echo $d['deskripsi']; ?>" aria-label="Deskripsi"></textarea>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="block text-sm text-gray-600" for="isi_berita">Isi Berita</label>
-                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." value="<?php echo $d['isi_berita']; ?>" aria-label="Isi Berita"></textarea>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="block text-sm text-gray-600" for="gambar">Gambar</label>
-                                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="gambar" name="gambar" type="file" accept="image/*" required aria-label="Gambar">
-                                        </div>
-                                        <div class="mt-6 flex justify-center">
-                                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Publish Berita</button>
-                                        </div>
-                                    </form>
+                            <?php
+include 'config.php';
+$id = $_GET['id'];
+$data = mysqli_query($db, "SELECT * FROM kategori_berita WHERE id='$id'");
+while ($d = mysqli_fetch_array($data)) {
+?>
+    <form action="update.php" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
+        <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
+        <div class="mb-2">
+            <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
+            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="kategori" name="kategori" type="text" required placeholder="Masukkan Kategori" value="<?php echo $d['kategori']; ?>" aria-label="Kategori">
+        </div>
+        <div class="mb-2">
+            <label class="block text-sm text-gray-600" for="judul_berita">Judul Berita</label>
+            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="judul_berita" name="judul_berita" type="text" required placeholder="Masukkan judul berita" value="<?php echo $d['judul_berita']; ?>" aria-label="Judul Berita">
+        </div>
+        <div class="mb-2">
+            <label class="block text-sm text-gray-600" for="isi_berita">Isi Berita</label>
+            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." aria-label="Isi Berita"><?php echo $d['isi_berita']; ?></textarea>
+        </div>
+        <div class="mb-2">
+            <label class="block text-sm text-gray-600" for="gambar">Gambar</label>
+            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="gambar" name="gambar" type="file" accept="image/*" aria-label="Gambar">
+        </div>
+        <div class="mt-6 flex justify-center">
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Publish Berita</button>
+        </div>
+    </form>
+<?php
+}
+?>
+
                             </div>
                         </div>
                     </div>
@@ -187,8 +187,7 @@ if (!isset($_SESSION['admin_username'])) {
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-<?php
-                                } ?>
+
 </body>
 
 </html>
