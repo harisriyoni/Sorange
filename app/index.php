@@ -154,7 +154,7 @@ include("config.php");
             <div class="s-testimonials__author">
               <img src="hege.jpg" height="100" width="1000" alt="Author image" class="s-testimonials__avatar">
               <cite class="s-testimonials__cite">
-                <span>CEO:</span>
+                <span>Author Website:</span>
                 <strong><a href="https://www.linkedin.com/in/harisriyoni/" target="_blank" rel="noopener noreferrer">Haris Riyoni</a></strong>
               </cite>
             </div>
@@ -176,7 +176,7 @@ include("config.php");
         <a href="#" class="uppercase px-3">Terms & Conditions</a>
         <a href="#" class="uppercase px-3">Contact Us</a>
       </div>
-      <div class="uppercase pb-6">&copy; myblog.com</div>
+      <div class="uppercase pb-6">&copy; https://sorange-dff1a8f11055.herokuapp.com</div>
     </div>
   </footer>
 
