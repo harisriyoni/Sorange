@@ -9,7 +9,7 @@ include("config.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SORANGE</title>
-  <meta name="author" content="David Grzyb">
+  <meta name="author" content="">
   <meta name="description" content="">
 
   <!-- Tailwind -->
@@ -123,31 +123,7 @@ include("config.php");
             <p class="pb-3"><?php echo $row['isi_berita']; ?></p>
           </div>
         <?php endforeach; ?>
-      </article>
-      
-      <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
-        <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
-          <img src="https://source.unsplash.com/collection/1346951/150x150?sig=1" class="rounded-full shadow h-32 w-32">
-        </div>
-        <div class="flex-1 flex flex-col justify-center md:justify-start">
-          <p class="font-semibold text-2xl">David</p>
-          <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel neque non libero suscipit suscipit eu eu urna.</p>
-          <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4">
-            <a class="" href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a class="pl-4" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a class="pl-4" href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a class="pl-4" href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+      </article>  
 
     </section>
 
@@ -185,23 +161,6 @@ include("config.php");
   </div>
 
   <footer class="w-full border-t bg-white pb-12">
-    <div
-      class="relative w-full flex items-center invisible md:visible md:pb-12"
-      x-data="getCarouselData()">
-      <button
-        class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
-        x-on:click="decrement()">
-        &#8592;
-      </button>
-      <template x-for="image in images.slice(currentIndex, currentIndex + 6)" :key="images.indexOf(image)">
-        <img class="w-1/6 hover:opacity-75" :src="image">
-      </template>
-      <button
-        class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
-        x-on:click="increment()">
-        &#8594;
-      </button>
-    </div>
     <div class="w-full container mx-auto flex flex-col items-center">
       <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
         <a href="#" class="uppercase px-3">About Us</a>
