@@ -37,11 +37,11 @@ if(!isset($_SESSION['admin_username'])){
 </a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="dashboard.php" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dashboard.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-            <a href="form.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="form.php" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Form
             </a>
@@ -70,11 +70,11 @@ if(!isset($_SESSION['admin_username'])){
 
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-                <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="form.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="form.php" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
                     Form
                 </a>
