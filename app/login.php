@@ -9,12 +9,13 @@ include("config.php");
 $username = "";
 $password = "";
 $err = "";
+$success = false;
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($username == ''or$password == '') {
+    if ($username == '' or $password == '') {
         $err .= "Silakan masukkan username dan password<br>";
     }
 
@@ -25,13 +26,13 @@ if (isset($_POST['login'])) {
 
         if (!$r1 || $r1['password'] != md5($password)) {
             $err .= "Anda Belum Daftar atau Password salah<br>";
+        } else {
+            $success = true;
         }
     }
 
-    if (empty($err)) {
+    if ($success) {
         $_SESSION['admin_username'] = $username;
-        header("location:index.php");
-        exit();
     }
 }
 ?>
@@ -39,10 +40,6 @@ if (isset($_POST['login'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script>
@@ -52,6 +49,17 @@ if (isset($_POST['login'])) {
                 icon: 'error',
                 title: 'Oops...',
                 html: '<?php echo $err; ?>'
+            });
+        <?php } 
+        if ($success) { ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Berhasil',
+                text: 'Anda akan diarahkan ke halaman dashboard.',
+                timer: 2000,
+                showConfirmButton: false
+            }).then(function() {
+                window.location.href = 'index.php';
             });
         <?php } ?>
     </script>
