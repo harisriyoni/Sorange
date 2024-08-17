@@ -39,7 +39,7 @@ include("config.php");
         <li><a class="hover:text-gray-200 hover:underline px-4" href="">Mau Post Berita Kamu? Daftar Sekarang Gratis!</a></li>
         <li id="loginItem"><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li>
         <li id="registerItem"><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Registrasi</a></li>
-        <li id="logoutItem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="dashboard.php">Dashboard</a></li>
+        <li id="dashboarditem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="dashboard.php">Dashboard</a></li>
         <li id="logoutItem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="logout.php">Logout</a></li>
     </ul>
 </nav>
@@ -217,15 +217,18 @@ include("config.php");
         const loginItem = document.getElementById('loginItem');
         const registerItem = document.getElementById('registerItem');
         const logoutItem = document.getElementById('logoutItem');
+        const dashboarditem = document.getElementById('dashboarditem');
 
         if (isLoggedIn) {
             loginItem.style.display = 'none';
             registerItem.style.display = 'none';
             logoutItem.style.display = 'list-item';
+            dashboarditem.style.display ='list-item';
         } else {
             loginItem.style.display = 'list-item';
             registerItem.style.display = 'list-item';
             logoutItem.style.display = 'none';
+            dashboarditem.style.display = 'none';
         }
     }
 
