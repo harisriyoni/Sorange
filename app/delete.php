@@ -53,9 +53,9 @@ if(!isset($_SESSION['admin_username'])){
  $query = mysqli_query($db, $sql);
 
  if ($query){
- 	header("location:list-kategori.php?status=sukses");
+ 	header("location:dashboard.php?status=sukses");
  } else {
- 	header ("location:list-kategori.php?status=sukses");
+ 	header ("location:dashboard.php?status=sukses");
  }
 
 ?>
