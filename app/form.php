@@ -205,6 +205,7 @@ if (isset($_POST['submit'])) {
                                 echo "<div style='margin-bottom: 15px;'>$message</div>";
                             }
                             ?>
+
                             <form action="create.php" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
                                 <div class="mb-2">
                                     <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
@@ -241,7 +242,6 @@ if (isset($_POST['submit'])) {
             </main>
 
             <footer class="w-full bg-white text-right p-4">
-                Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
             </footer>
         </div>
 
