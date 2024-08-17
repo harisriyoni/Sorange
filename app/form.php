@@ -1,67 +1,87 @@
 <?php
-session_start();
-include("config.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Cek apakah user sudah login
-if (!isset($_SESSION['admin_username'])) {
-    header("location:login.php");
-    exit();
+require("config.php"); // Pastikan file ini berisi koneksi database Anda
+
+$message = '';
+
+if (isset($_POST['submit'])) {
+    // Ambil data dari formulir
+    $kategori = $_POST['kategori'];
+    $judulberita = $_POST['judul_berita'];
+    $isiberita = $_POST['isi_berita'];
+
+    // Proses upload gambar
+    $target_dir = __DIR__ . "/app/";
+    
+    // Pastikan direktori ada
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+    
+    $file_name = basename($_FILES["gambar"]["name"]);
+    $target_file = $target_dir . $file_name;
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // Cek apakah file gambar adalah gambar aktual
+    $check = getimagesize($_FILES["gambar"]["tmp_name"]);
+    if($check !== false) {
+        $uploadOk = 1;
+    } else {
+        $message = "File bukan gambar.";
+        $uploadOk = 0;
+    }
+
+    // Cek ukuran file
+    if ($_FILES["gambar"]["size"] > 5000000) {
+        $message = "Maaf, file terlalu besar.";
+        $uploadOk = 0;
+    }
+
+    // Izinkan format file tertentu
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        $message = "Maaf, hanya file JPG, JPEG, PNG & GIF yang diizinkan.";
+        $uploadOk = 0;
+    }
+
+    // Jika tidak ada error, coba upload file dan simpan data ke database
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
+            $gambar = "/app/" . $file_name; // Path relatif untuk disimpan di database
+
+            // Simpan data ke database
+            $sql = "INSERT INTO kategori_berita (kategori, judul_berita, isi_berita, gambar) VALUES (?, ?, ?, ?)";
+            $stmt = $db->prepare($sql);
+            $stmt->bind_param("ssss", $kategori, $judulberita, $isiberita, $gambar);
+            
+            if ($stmt->execute()) {
+                $message = "Berita berhasil dipublish dan gambar terupload.";
+            } else {
+                $message = "Gagal menyimpan data ke database: " . $db->error;
+            }
+        } else {
+            $message = "Maaf, terjadi error saat mengupload file.";
+        }
+    }
 }
-
-// Ambil pesan dari URL jika ada
-$message = isset($_GET['message']) ? urldecode($_GET['message']) : '';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publish Berita</title>
-    <meta name="author" content="">
-    <meta name="description" content="">
-
-    <!-- Tailwind -->
+    <!-- CSS dan Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
-        .font-family-karla {
-            font-family: karla;
-        }
-
-        .bg-sidebar {
-            background: #3d68ff;
-        }
-
-        .cta-btn {
-            color: #3d68ff;
-        }
-
-        .upgrade-btn {
-            background: #1947ee;
-        }
-
-        .upgrade-btn:hover {
-            background: #0038fd;
-        }
-
-        .active-nav-link {
-            background: #1947ee;
-        }
-
-        .nav-item:hover {
-            background: #1947ee;
-        }
-
-        .account-link:hover {
-            background: #3d68ff;
-        }
+        /* CSS tambahan */
     </style>
 </head>
-
 <body class="bg-gray-100 font-family-karla flex">
+    <!-- Sidebar dan Header -->
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="dashboard.php" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
@@ -132,24 +152,24 @@ $message = isset($_GET['message']) ? urldecode($_GET['message']) : '';
                 <i class="fas fa-plus mr-3"></i> Home Public Sorange
             </a>
         </header>
-
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6">
-                <h1 class="w-full text-3xl text-black pb-6">Buat Berita</h1>
-
-                <div class="flex flex-wrap">
-                    <div class="w-full flex justify-center my-6">
-                        <div class="w-full max-w-lg">
-                            <p class="text-xl pb-6 flex items-center justify-center">
-                                <i class="fas fa-list mr-3"></i> Isikan Semua Field dibawah ini:
-                            </p>
-                            <div class="leading-loose">
+    
+    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="w-full text-3xl text-black pb-6">Buat Berita</h1>
+            <div class="flex flex-wrap">
+                <div class="w-full flex justify-center my-6">
+                    <div class="w-full max-w-lg">
+                        <p class="text-xl pb-6 flex items-center justify-center">
+                            <i class="fas fa-list mr-3"></i> Isikan Semua Field dibawah ini:
+                        </p>
+                        <div class="leading-loose">
                             <?php
                             if (!empty($message)) {
                                 echo "<div style='margin-bottom: 15px;'>$message</div>";
                             }
                             ?>
-                            <form action="create.php" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
+
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
                                 <div class="mb-2">
                                     <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
                                     <select class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="kategori" name="kategori" required>
@@ -176,25 +196,19 @@ $message = isset($_GET['message']) ? urldecode($_GET['message']) : '';
                                     <button name="submit" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Publish Berita</button>
                                 </div>
                             </form>
-                            </div>
+
                         </div>
                     </div>
-
-
                 </div>
-            </main>
+            </div>
+        </main>
 
-            <footer class="w-full bg-white text-right p-4">
-                Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
-            </footer>
-        </div>
-
+        <footer class="w-full bg-white text-right p-4">
+        </footer>
     </div>
 
-    <!-- AlpineJS -->
+    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 </body>
-
 </html>
