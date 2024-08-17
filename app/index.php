@@ -141,7 +141,23 @@ Terima kasih telah mengunjungi kami, dan selamat membaca!</p>
           Bergabung Bersama Kami!
         </a>
       </div>  
-
+    <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <p class="text-xl font-semibold pb-5">Instagram</p>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="s-testimonials__slide swiper-slide">
+                        <div class="s-testimonials__author">
+                            <img src="hege.jpg" height="100" width="1000" alt="Author image" class="s-testimonials__avatar">
+                            <cite class="s-testimonials__cite">
+                                <span>CEO:</span>
+                                <strong><a href="" target="_blank" rel="noopener noreferrer">Haris Riyoni</a></strong>
+                            </cite>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                    <i class="fab fa-linkedin mr-2"></i> Connect With Me
+                </a>
+            </div>
     </aside>
 
   </div>
