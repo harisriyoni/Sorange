@@ -89,7 +89,7 @@ if (isset($_POST['login'])) {
                     timer: 2000,
                     showConfirmButton: false
                 }).then(function() {
-                    window.location.href = 'index.php';
+                    window.location.href = 'dashboard.php';
                 });
             <?php } ?>
         });

@@ -143,7 +143,7 @@ include("config.php");
           Bergabunglah dengan kami di Perusahaan Sorange, dan jadilah bagian dari revolusi informasi yang memberikan dampak positif bagi masyarakat. <br> Kami berkomitmen untuk terus berkembang dan beradaptasi dengan kebutuhan berita terkini untuk memenuhi harapan Anda.
         </p>
         Terima kasih telah mengunjungi kami, dan selamat membaca!</p>
-        <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+        <a href="registrasi.php" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
           Bergabung Bersama Kami!
         </a>
       </div>
@@ -155,12 +155,12 @@ include("config.php");
               <img src="hege.jpg" height="100" width="1000" alt="Author image" class="s-testimonials__avatar">
               <cite class="s-testimonials__cite">
                 <span>Author Website:</span>
-                <strong><a href="https://www.linkedin.com/in/harisriyoni/" target="_blank" rel="noopener noreferrer">Haris Riyoni</a></strong>
+                <strong><a href="" target="_blank" rel="noopener noreferrer">Haris Riyoni</a></strong>
               </cite>
             </div>
           </div>
         </div>
-        <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+        <a href="https://www.linkedin.com/in/harisriyoni/" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
           <i class="fab fa-linkedin mr-2"></i> Connect With Me
         </a>
       </div>
