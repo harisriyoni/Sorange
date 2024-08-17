@@ -4,7 +4,7 @@ include'function.php';
 
 if (isset($_POST['register'])) {
     if (Registrasi($_POST) > 0) {
-        echo"<script>toastr.success('User baru berhasil dibuat');</script>";
+        echo"<script>toastr.success('Kamu Berhasil Daftar');</script>";
     } else {
         echo"<script>toastr.error('Terjadi kesalahan: " . mysqli_error($db) . "');</script>";
     }
