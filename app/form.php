@@ -137,6 +137,11 @@ if (!isset($_SESSION['admin_username'])) {
                                 <i class="fas fa-list mr-3"></i> Isikan Semua Field dibawah ini:
                             </p>
                             <div class="leading-loose">
+                                <?php
+                                if (!empty($error_message)) {
+                                    echo "<div style='color: red; margin-bottom: 15px;'>$error_message</div>";
+                                }
+                                ?>
                                 <form action="create.php" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
                                     <div class="mb-2">
                                         <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
