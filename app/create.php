@@ -65,5 +65,9 @@ if (isset($_POST['submit'])) {
             $message = "Maaf, terjadi error saat mengupload file.";
         }
     }
+
+    // Redirect kembali ke form dengan pesan
+    header("Location: tampilan.php?message=" . urlencode($message));
+    exit();
 }
 ?>
