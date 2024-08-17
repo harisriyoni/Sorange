@@ -1,6 +1,5 @@
 <?php
 include("config.php");
-$isLoggedIn = isset($_SESSION['PHPSESSID']);
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +35,11 @@ $isLoggedIn = isset($_SESSION['PHPSESSID']);
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
     <nav>
-    <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-        <?php if (!$isLoggedIn): ?>
-            <!-- Jika belum login, tampilkan menu Daftar dan Masuk -->
-            <li><a class="hover:text-gray-200 hover:underline px-4" href="">Mau Post Berita Kamu? Daftar Sekarang Gratis!</a></li>
-            <li><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li>
-            <li><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Registrasi</a></li>
-        <?php else: ?>
-            <!-- Jika sudah login, sembunyikan Daftar dan Masuk, tampilkan Logout -->
-            <li><a class="hover:text-gray-200 hover:underline px-4" href="logout.php">Logout</a></li>
-        <?php endif; ?>
+    <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline" id="navMenu">
+        <li><a class="hover:text-gray-200 hover:underline px-4" href="">Mau Post Berita Kamu? Daftar Sekarang Gratis!</a></li>
+        <li id="loginItem"><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li>
+        <li id="registerItem"><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Registrasi</a></li>
+        <li id="logoutItem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="logout.php">Logout</a></li>
     </ul>
 </nav>
 
@@ -210,7 +204,33 @@ $isLoggedIn = isset($_SESSION['PHPSESSID']);
       }
     }
   </script>
+<script>
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
 
+    function updateNavMenu() {
+        const isLoggedIn = getCookie('PHPSESSID') !== undefined;
+        const loginItem = document.getElementById('loginItem');
+        const registerItem = document.getElementById('registerItem');
+        const logoutItem = document.getElementById('logoutItem');
+
+        if (isLoggedIn) {
+            loginItem.style.display = 'none';
+            registerItem.style.display = 'none';
+            logoutItem.style.display = 'list-item';
+        } else {
+            loginItem.style.display = 'list-item';
+            registerItem.style.display = 'list-item';
+            logoutItem.style.display = 'none';
+        }
+    }
+
+    // Run the function when the page loads
+    document.addEventListener('DOMContentLoaded', updateNavMenu);
+</script>
 </body>
 
 </html>
