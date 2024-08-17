@@ -137,10 +137,10 @@ include("config.php");
           Di Perusahaan Sorange, kami percaya bahwa informasi yang tepat waktu dan akurat adalah kunci untuk memahami dunia di sekitar kita. Kami menghadirkan berbagai topik berita, mulai dari berita lokal hingga internasional, dengan pendekatan jurnalistik yang profesional dan objektif.
         </p>
         <p>
-          Selain itu, kami juga membuka kesempatan bagi Anda untuk menjadi bagian dari komunitas kami dengan memposting berita terbaru. Kami menyambut setiap kontribusi dari pembaca kami yang ingin berbagi informasi penting dan relevan dengan masyarakat.
+          Selain itu, kami juga membuka kesempatan bagi Anda untuk menjadi bagian dari komunitas kami dengan memposting berita terbaru. <br> Kami menyambut setiap kontribusi dari pembaca kami yang ingin berbagi informasi penting dan relevan dengan masyarakat.
         </p>
         <p>
-          Bergabunglah dengan kami di Perusahaan Sorange, dan jadilah bagian dari revolusi informasi yang memberikan dampak positif bagi masyarakat. Kami berkomitmen untuk terus berkembang dan beradaptasi dengan kebutuhan berita terkini untuk memenuhi harapan Anda.
+          Bergabunglah dengan kami di Perusahaan Sorange, dan jadilah bagian dari revolusi informasi yang memberikan dampak positif bagi masyarakat. <br> Kami berkomitmen untuk terus berkembang dan beradaptasi dengan kebutuhan berita terkini untuk memenuhi harapan Anda.
         </p>
         Terima kasih telah mengunjungi kami, dan selamat membaca!</p>
         <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
