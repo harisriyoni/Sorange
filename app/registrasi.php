@@ -8,9 +8,13 @@ if (isset($_POST['register'])) {
             window.onload = function() {
                 Swal.fire({
                     icon: 'success',
-                    title: 'User baru berhasil dibuat',
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: 'Selamat Kamu Berhasil Daftar',
+                    text: 'Klik OK untuk melanjutkan',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'login.php';
+                    }
                 });
             }
         </script>";
@@ -21,6 +25,7 @@ if (isset($_POST['register'])) {
                     icon: 'error',
                     title: 'Gagal membuat user',
                     text: '" . mysqli_error($db) . "',
+                    confirmButtonText: 'OK'
                 });
             }
         </script>";
