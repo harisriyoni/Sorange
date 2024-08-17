@@ -1,12 +1,12 @@
 <?php
-include 'config.php';
-include 'function.php';
+include'config.php';
+include'function.php';
 
 if (isset($_POST['register'])) {
     if (Registrasi($_POST) > 0) {
-        echo "<script> alert('user baru berhasil dibuat')</script>";
+        echo"<script>toastr.success('User baru berhasil dibuat');</script>";
     } else {
-        echo mysqli_error($db);
+        echo"<script>toastr.error('Terjadi kesalahan: " . mysqli_error($db) . "');</script>";
     }
 }
 ?>
@@ -17,6 +17,9 @@ if (isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>Halaman Registrasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
