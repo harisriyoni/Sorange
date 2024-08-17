@@ -4,47 +4,36 @@ if (isset($_SESSION['admin_username'])) {
     header("location:index.php");
     exit();
 }
-
 include("config.php");
+
 $username = "";
 $password = "";
 $err = "";
+
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == '' || $password == '') {
-        $err .= "<li class='text-red-500'>Silakan masukkan username dan password</li>";
+
+    if ($username == ''or$password == '') {
+        $err .= "Silakan masukkan username dan password";
     }
+
     if (empty($err)) {
         $sql1 = "SELECT * FROM admin WHERE username = '$username'";
         $q1 = mysqli_query($db, $sql1);
         $r1 = mysqli_fetch_array($q1);
-        if ($r1['password'] != md5($password)) {
-            $err .= "<li class='text-red-500'>Anda Belum Daftar atau Password salah</li>";
+
+        if (!$r1 || $r1['password'] != md5($password)) {
+            $err .= "Anda Belum Daftar atau Password salah";
         }
     }
+
     if (empty($err)) {
         $_SESSION['admin_username'] = $username;
-        echo"<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Login berhasil',
-                text: 'Anda akan dialihkan ke dashboard',
-                timer: 1500,
-                didClose: () => {
-                    window.location.href = 'dashboard.php';
-                }
-            });
-        </script>";
+        header("location:index.php");
+        exit();
     } else {
-        echo"<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Login gagal',
-                html: '<ul class=\"list-disc pl-5\">" . str_replace("\n", "", $err) . "</ul>',
-                confirmButtonText: 'OK'
-            });
-        </script>";
+        // Send error messages to JavaScriptecho"<script>var errorMessage = '".addslashes($err)."';</script>";
     }
 }
 ?>
@@ -57,12 +46,17 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        label {
-            display: block;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        <?php 
+        if (!empty($err)) { ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                html: '<?php echo $err; ?>'
+            });
+        <?php } ?>
+    </script>
 </head>
 
 <body>
