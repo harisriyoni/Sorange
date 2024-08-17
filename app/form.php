@@ -137,38 +137,39 @@ if (!isset($_SESSION['admin_username'])) {
                                 <i class="fas fa-list mr-3"></i> Isikan Semua Field dibawah ini:
                             </p>
                             <div class="leading-loose">
-                            <?php
-    if (!empty($message)) {
-        echo "<div style='color: " . (strpos($message, 'berhasil') !== false ? 'green' : 'red') . "; margin-bottom: 15px;'>$message</div>";
-    }
-    ?>
-                                  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
-        <div class="mb-2">
-            <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
-            <select class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="kategori" name="kategori" required>
-                <option value="">Pilih Kategori</option>
-                <option value="politik">Politik</option>
-                <option value="olahraga">Olahraga</option>
-                <option value="teknologi">Teknologi</option>
-                <option value="hiburan">Hiburan</option>
-            </select>
-        </div>
-        <div class="mb-2">
-            <label class="block text-sm text-gray-600" for="judul_berita">Judul Berita</label>
-            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="judul_berita" name="judul_berita" type="text" required placeholder="Masukkan judul berita" aria-label="Judul Berita">
-        </div>
-        <div class="mb-2">
-            <label class="block text-sm text-gray-600" for="isi_berita">Isi Berita</label>
-            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." aria-label="Isi Berita"></textarea>
-        </div>
-        <div class="mb-2">
-            <label class="block text-sm text-gray-600" for="gambar">Gambar</label>
-            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="gambar" name="gambar" type="file" accept="image/*" required aria-label="Gambar">
-        </div>
-        <div class="mt-6 flex justify-center">
-            <button name="submit" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Publish Berita</button>
-        </div>
-    </form>
+                                <?php
+                                if (!empty($message)) {
+                                    echo "<div style='margin-bottom: 15px;'>$message</div>";
+                                }
+                                ?>
+
+                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl">
+                                    <div class="mb-2">
+                                        <label class="block text-sm text-gray-600" for="kategori">Kategori</label>
+                                        <select class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="kategori" name="kategori" required>
+                                            <option value="">Pilih Kategori</option>
+                                            <option value="politik">Politik</option>
+                                            <option value="olahraga">Olahraga</option>
+                                            <option value="teknologi">Teknologi</option>
+                                            <option value="hiburan">Hiburan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-sm text-gray-600" for="judul_berita">Judul Berita</label>
+                                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="judul_berita" name="judul_berita" type="text" required placeholder="Masukkan judul berita" aria-label="Judul Berita">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-sm text-gray-600" for="isi_berita">Isi Berita</label>
+                                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." aria-label="Isi Berita"></textarea>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-sm text-gray-600" for="gambar">Gambar</label>
+                                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="gambar" name="gambar" type="file" accept="image/*" required aria-label="Gambar">
+                                    </div>
+                                    <div class="mt-6 flex justify-center">
+                                        <button name="submit" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Publish Berita</button>
+                                    </div>
+                                </form>
 
 
                             </div>
