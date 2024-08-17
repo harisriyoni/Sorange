@@ -39,6 +39,7 @@ include("config.php");
         <li><a class="hover:text-gray-200 hover:underline px-4" href="">Mau Post Berita Kamu? Daftar Sekarang Gratis!</a></li>
         <li id="loginItem"><a class="hover:text-gray-200 hover:underline px-4" href="login.php">Masuk</a></li>
         <li id="registerItem"><a class="hover:text-gray-200 hover:underline px-4" href="registrasi.php">Registrasi</a></li>
+        <li id="logoutItem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="dashboard.php">Dashboard</a></li>
         <li id="logoutItem" style="display: none;"><a class="hover:text-gray-200 hover:underline px-4" href="logout.php">Logout</a></li>
     </ul>
 </nav>
