@@ -188,11 +188,11 @@ if (!isset($_SESSION['admin_username'])) {
                                         </div>
                                         <div class="mb-2">
                                             <label class="block text-sm text-gray-600" for="deskripsi">Deskripsi</label>
-                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="deskripsi" name="deskripsi" rows="6" required placeholder="Tulis Deskripsi di sini..." aria-label="Deskripsi"></textarea>
+                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="deskripsi" name="deskripsi" rows="6" required placeholder="Tulis Deskripsi di sini..." value="<?php echo $d['deskripsi']; ?>" aria-label="Deskripsi"></textarea>
                                         </div>
                                         <div class="mb-2">
                                             <label class="block text-sm text-gray-600" for="isi_berita">Isi Berita</label>
-                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." value="<?php echo $d['judul_berita']; ?>" aria-label="Isi Berita"></textarea>
+                                            <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="isi_berita" name="isi_berita" rows="6" required placeholder="Tulis isi berita di sini..." value="<?php echo $d['isi_berita']; ?>" aria-label="Isi Berita"></textarea>
                                         </div>
                                         <div class="mb-2">
                                             <label class="block text-sm text-gray-600" for="gambar">Gambar</label>
