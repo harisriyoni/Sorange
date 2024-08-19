@@ -1,5 +1,4 @@
 <?php
-session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -49,7 +48,8 @@ if (isset($_POST['submit'])) {
 
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            $gambar = $file_name; // Hanya menyimpan nama file gambar
+            // Pastikan hanya nama file yang disimpan ke database
+            $gambar = $file_name; // $file_name hanya berisi nama file, misal "kardio.jpg"
     
             // Simpan data ke database
             $sql = "INSERT INTO kategori_berita (kategori, judul_berita, isi_berita, gambar) VALUES (?, ?, ?, ?)";
