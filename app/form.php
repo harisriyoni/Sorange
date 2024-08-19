@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['admin_username'])) {
-    header("location:index.php");
+    header("location:form.php");
     exit();
 }
 error_reporting(E_ALL);
