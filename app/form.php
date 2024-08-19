@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['admin_username'])) {
-    header("location:form.php");
-    exit();
-}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
