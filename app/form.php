@@ -46,11 +46,10 @@ if (isset($_POST['submit'])) {
         $uploadOk = 0;
     }
 
-    // Jika tidak ada error, coba upload file dan simpan data ke database
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            $gambar = $file_name; // Path relatif untuk disimpan di database
-
+            $gambar = $file_name; // Hanya menyimpan nama file gambar
+    
             // Simpan data ke database
             $sql = "INSERT INTO kategori_berita (kategori, judul_berita, isi_berita, gambar) VALUES (?, ?, ?, ?)";
             $stmt = $db->prepare($sql);
@@ -65,6 +64,7 @@ if (isset($_POST['submit'])) {
             $message = "Maaf, terjadi error saat mengupload file.";
         }
     }
+    
 }
 ?>
 
