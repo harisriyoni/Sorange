@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     // Jika tidak ada error, coba upload file dan simpan data ke database
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            $gambar = "/app/" . $file_name; // Path relatif untuk disimpan di database
+            $gambar = $file_name; // Path relatif untuk disimpan di database
 
             // Simpan data ke database
             $sql = "INSERT INTO kategori_berita (kategori, judul_berita, isi_berita, gambar) VALUES (?, ?, ?, ?)";
