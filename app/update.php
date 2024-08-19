@@ -42,7 +42,7 @@ if (isset($_FILES['gambar']['name']) && $_FILES['gambar']['name'] != '') {
     // Jika tidak ada error, upload file
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            $gambar = "/app/" . $file_name; // Path relatif untuk disimpan di database
+            $gambar = $file_name; // Path relatif untuk disimpan di database
 
             // Update data termasuk gambar baru di database
             mysqli_query($db, "UPDATE kategori_berita SET kategori='$kategori', judul_berita='$judulberita', isi_berita='$isiberita', gambar='$gambar' WHERE id='$id'");
