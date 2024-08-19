@@ -9,12 +9,7 @@ $isiberita = $_POST['isi_berita'];
 // Proses upload gambar jika ada
 if (isset($_FILES['gambar']['name']) && $_FILES['gambar']['name'] != '') {
     // Proses upload gambar baru
-    $target_dir = __DIR__ . "/app/";
-    
-    // Pastikan direktori ada
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
+    $target_dir = __DIR__ . "/"; // Simpan di direktori root proyek
 
     $file_name = basename($_FILES["gambar"]["name"]);
     $target_file = $target_dir . $file_name;
@@ -42,7 +37,7 @@ if (isset($_FILES['gambar']['name']) && $_FILES['gambar']['name'] != '') {
     // Jika tidak ada error, upload file
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            $gambar = "/app/" . $file_name; // Path relatif untuk disimpan di database
+            $gambar = $file_name; // Hanya menyimpan nama file gambar di database
 
             // Update data termasuk gambar baru di database
             mysqli_query($db, "UPDATE kategori_berita SET kategori='$kategori', judul_berita='$judulberita', isi_berita='$isiberita', gambar='$gambar' WHERE id='$id'");

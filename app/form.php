@@ -13,13 +13,8 @@ if (isset($_POST['submit'])) {
     $isiberita = $_POST['isi_berita'];
 
     // Proses upload gambar
-    $target_dir = __DIR__ . "/app/";
-    
-    // Pastikan direktori ada
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-    
+    $target_dir = __DIR__ . "/"; // Simpan di direktori root proyek
+
     $file_name = basename($_FILES["gambar"]["name"]);
     $target_file = $target_dir . $file_name;
     $uploadOk = 1;
@@ -67,7 +62,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
