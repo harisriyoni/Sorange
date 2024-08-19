@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION['admin_username'])) {
+    header("location:index.php");
+    exit();
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -64,9 +69,9 @@ if (isset($_POST['submit'])) {
             $message = "Maaf, terjadi error saat mengupload file.";
         }
     }
-    
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
